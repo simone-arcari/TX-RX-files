@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\simon\\Documents\\GitHub\\TX-RX-files\\RecvFile\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A56FCBD1-A0A2-4061-B48F-FD3B6FBF9B69}|RecvFile\\RecvFile.vcxproj|C:\\Users\\simon\\Documents\\GitHub\\TX-RX-files\\RecvFile\\RecvFile\\RecvFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A56FCBD1-A0A2-4061-B48F-FD3B6FBF9B69}|RecvFile\\RecvFile.vcxproj|solutionrelative:RecvFile\\RecvFile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 576,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RecvFile.cpp",
+              "DocumentMoniker": "C:\\Users\\simon\\Documents\\GitHub\\TX-RX-files\\RecvFile\\RecvFile\\RecvFile.cpp",
+              "RelativeDocumentMoniker": "RecvFile\\RecvFile.cpp",
+              "ToolTip": "C:\\Users\\simon\\Documents\\GitHub\\TX-RX-files\\RecvFile\\RecvFile\\RecvFile.cpp",
+              "RelativeToolTip": "RecvFile\\RecvFile.cpp",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAcwHwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-05T14:22:27.957Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
