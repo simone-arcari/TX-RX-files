@@ -39,7 +39,7 @@ void receiveFile(SOCKET ClientSocket) {
     }
 
 	// Receive the file size
-    int fileSize = 0;
+    int64_t fileSize = 0;
     result = recv(ClientSocket, reinterpret_cast<char*>(&fileSize), sizeof(fileSize), 0);
     if (result <= 0) {
         std::cerr << "Failed to receive file size: " << WSAGetLastError() << std::endl;
@@ -58,15 +58,15 @@ void receiveFile(SOCKET ClientSocket) {
 
     // Receive file data
     char buffer[BUFFER_SIZE];
-    int bytesReceived = 0;
-	int totalByteReceived = 0;
+    int64_t bytesReceived = 0;
+	int64_t totalByteReceived = 0;
 
     while ((bytesReceived = recv(ClientSocket, buffer, BUFFER_SIZE, 0)) > 0) {
         file.write(buffer, bytesReceived);
 		file.flush();
 		totalByteReceived += bytesReceived;
 		
-		double  percentage = static_cast<double>(totalByteReceived) / static_cast<int>(fileSize) * 100.0;
+		double  percentage = static_cast<double>(totalByteReceived) / static_cast<int64_t>(fileSize) * 100.0;
 		std::cout << "\rCompletion percentage: " << std::fixed << std::setprecision(2) << percentage << "%";
 		std::cout.flush();
     }

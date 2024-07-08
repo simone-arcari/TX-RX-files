@@ -38,19 +38,20 @@ void sendFile(SOCKET ConnectSocket, const std::string& filePath, const std::stri
     std::streamsize fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
 
-    // Send the file size
-    int intFileSize = static_cast<int>(fileSize);
-    if (send(ConnectSocket, reinterpret_cast<char*>(&intFileSize), sizeof(intFileSize), 0) == SOCKET_ERROR) {
-        std::cerr << "Failed to send file name length: " << WSAGetLastError() << std::endl;
+    // Invia la dimensione del file
+    int64_t int64FileSize = static_cast<int64_t>(fileSize);
+    if (send(ConnectSocket, reinterpret_cast<char*>(&int64FileSize), sizeof(int64FileSize), 0) == SOCKET_ERROR) {
+        std::cerr << "Failed to send file size: " << WSAGetLastError() << std::endl;
         return;
     }
+
 
     cursorInfo.bVisible = false;
     SetConsoleCursorInfo(hConsole, &cursorInfo);
 
     char buffer[BUFFER_SIZE];
-    int totalByteSent = 0;
-    int residualByte = static_cast<int>(fileSize);
+    int64_t totalByteSent = 0;
+    int64_t residualByte = static_cast<int64_t>(fileSize);
     while (residualByte > 0) {
         file.read(buffer, BUFFER_SIZE);
         std::streamsize bytesRead = file.gcount();
@@ -63,7 +64,7 @@ void sendFile(SOCKET ConnectSocket, const std::string& filePath, const std::stri
         totalByteSent += bytesSent;
         residualByte -= bytesSent;
 
-        double  percentage = static_cast<double>(totalByteSent) / static_cast<int>(fileSize) * 100.0;
+        double  percentage = static_cast<double>(totalByteSent) / int64FileSize * 100.0;
         std::cout << "\rCompletion percentage: " << std::fixed << std::setprecision(2) << percentage << "%";
         std::cout.flush();
     }
